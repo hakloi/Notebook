@@ -29,4 +29,10 @@ class Note:
         self.body = new_body
 
     def set_date(self, new_date):
-        self.date = str(datetime.now())
+        self.date = str(datetime.now().strftime("%d.%m.%Y %H:%M:%S"))
+        
+    def to_string(note):
+        return note.id + ';' + note.title + ';' + note.body + ';' + note.date
+
+    def map_note(note):
+        return '\nID: ' + note.id + '\n' + 'Title: ' + note.title + '\n' + 'Body: ' + note.body + '\n' + 'Date: ' + note.date

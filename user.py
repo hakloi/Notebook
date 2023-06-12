@@ -12,6 +12,7 @@ def start():
         print("3. Delete an existing note")
         print("4. Read all notes")
         print("5. Save the notes as a CSV file")
+        print("6. Exit")
         choice = input("Enter your choice: ")
 
         if choice == "1":
@@ -38,5 +39,8 @@ def start():
                 for note in notes:
                     writer.writerow([note.get_id(), note.get_title(), note.get_body(), note.get_date()])
             print("Notes saved as a CSV file.")
+        elif choice == "6":
+            print("Goodbye! Have a good day!")
+            break
         else:
             print("Invalid choice. Please try again.")
