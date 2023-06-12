@@ -1,6 +1,9 @@
 import csv
-from file_operations import edit_note, read_note, delete_note, save_note
+import datetime
+import uuid
+from file_operations import edit_note, read_note, delete_note, save_note, create_note
 import note
+from note import Note, notes 
 
 
 def start():
@@ -16,12 +19,8 @@ def start():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            note_id = int(input("Enter the note ID: "))
-            title = input("Enter the title: ")
-            body = input("Enter the body: ")
-            date = input("Enter the date: ")
-            note = note.Note(note_id, title, body, date)
-            save_note(note)
+            create_note()
+            
         elif choice == "2":
             note_id = int(input("Enter the note ID: "))
             title = input("Enter the new title: ")
