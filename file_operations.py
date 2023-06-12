@@ -9,15 +9,21 @@ def create_note():
     id = str(uuid.uuid1())[0:3]  # generate a unique ID
     date = datetime.date.today  # get the current day
     note_new = Note(id, title, body, date)
+    print(f"---\nTitle: {note_new.title} \nBody: {note_new.body} \nID: {note_new.id} \nDate: {note_new.date} \n---")
     notes.append(note_new)
     print(f"Note created with id: {note_new.get_id()}")
-    print(notes)
     # save_note(note)
 
-def read_note():
-    # take header 
-    # edit body
-    print()
+def read_note(file_path, id):
+    with open('note1.csv', 'r') as f:
+        csv_reader = csv.reader(f)
+        header = next(csv_reader)
+
+        for row in csv_reader:
+            if row[0] == id:
+                new_note = Note(id, row[1], row[2], row[3], row[4])
+                return new_note
+    return None
     
 def write_note():
     # header 
