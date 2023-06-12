@@ -1,3 +1,5 @@
+import datetime
+
 class Note:
     def __init__(self, id, title, body, date):
         self.id = id
@@ -27,4 +29,4 @@ class Note:
         self.body = new_body
 
     def set_date(self, new_date):
-        self.date = new_date
+        self.date = str(datetime.now())
