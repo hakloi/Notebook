@@ -10,14 +10,14 @@ def add_note():
             Note.set_id(note)
     array.append(note)
     write_file(array, 'a')
-    print('Note added succesfully!')
+    print('Note added succesfully!\n')
     
     
 def show(text):
     logic = True
     array = read_file()
     if text == 'date':
-        date = input('Введите дату в формате dd.mm.yyyy: ')
+        date = input('Input date: dd.mm.yyyy: ')
     for notes in array:
         if text == 'all':
             logic = False
@@ -30,11 +30,11 @@ def show(text):
             if date in Note.get_date(notes):
                 print(Note.map_note(notes))
     if logic == True:
-        print('Нет ни одной заметки...')
+        print('There are not any notes!\n')
 
 
 def id_edit_del_show(text):
-    id = input('Введите id необходимой заметки: ')
+    id = input('Input ID: ')
     array = read_file()
     logic = True
     for notes in array:
@@ -45,12 +45,12 @@ def id_edit_del_show(text):
                 Note.set_title(notes, note.get_title())
                 Note.set_body(notes, note.get_body())
                 Note.set_date(notes)
-                print('Заметка изменена...')
+                print('CHANGED!\n')
             if text == 'del':
                 array.remove(notes)
-                print('Заметка удалена...')
+                print('DELETED!\n')
             if text == 'show':
                 print(Note.map_note(notes))
     if logic == True:
-        print('Такой заметки нет, возможно, вы ввели неверный id')
+        print('Invalid ID!!\n')
     write_file(array, 'a')

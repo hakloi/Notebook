@@ -1,4 +1,5 @@
 import os
+import time
 from operation import add_note, id_edit_del_show, show 
 
 
@@ -31,6 +32,7 @@ def start():
         elif choice == "5":
             print("Goodbye! Have a good day!")
             # ПОСТАВИТЬ ТАЙМЕР 6 СЕКУННД
+            time.sleep(2)
             clear = lambda: os.system('cls')
             clear()
             break
